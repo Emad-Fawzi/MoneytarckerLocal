@@ -20,7 +20,7 @@
       export ANDROID_HOME="/opt/android/sdk"
       export PATH=$PATH:/opt/android/sdk/cmdline-tools/tools/bin
       if [ ! -d "$ANDROID_HOME/cmdline-tools" ]; then
-       curl -o sdk.zip https://google.com
+       curl -o sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
        unzip sdk.zip
        rm sdk.zip
        mkdir "$ANDROID_HOME/cmdline-tools"
@@ -28,11 +28,15 @@
        yes | "$ANDROID_HOME/cmdline-tools/tools/bin/sdkmanager" --licenses
       fi
 
-      # Do NOT use cd MoneytarckerLocal
-      # Do NOT use ./gradlew (since the wrapper is missing)
+      # MOVE INTO YOUR REPOSITORY FOLDER FIRST
+      gradle wrapper
+      git add gradlew gradlew.bat gradle/
+      git commit -m "Add missing gradle wrapper files"
+      git push origin main
 
-      # Run the build directly using the container's native Gradle instance
-      gradle assembleRelease
+      # NOW RUN GRADLE
+      chmod +x gradlew
+      ./gradlew assembleRelease
     setup_commands: apt-get update && apt-get install -y unzip curl
     cached_dirs:
     - /root/.gradle
