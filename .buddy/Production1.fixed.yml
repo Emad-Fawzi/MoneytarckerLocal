@@ -1,7 +1,11 @@
 - pipeline: production1
   name: Production1
-  refs:
-  - refs/heads/main
   fail_on_prepare_env_warning: true
   events:
   - type: WEBHOOK
+  targets:
+  - target: https---github-com-emad-fawzi-moneytarckerlocal
+    type: GIT
+    name: https://github.com/Emad-Fawzi/MoneytarckerLocal
+    repository: https://github.com/Emad-Fawzi/MoneytarckerLocal
+    auth: {}
