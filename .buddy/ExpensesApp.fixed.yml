@@ -16,7 +16,7 @@
   actions:
   - action: ./gradlew assembleRelease
     type: BUILD
-    commands: |-
+    commands: |
       export ANDROID_HOME="/opt/android/sdk"
       export PATH=$PATH:/opt/android/sdk/cmdline-tools/tools/bin
       if [ ! -d "$ANDROID_HOME/cmdline-tools" ]; then
@@ -28,9 +28,12 @@
        yes | "$ANDROID_HOME/cmdline-tools/tools/bin/sdkmanager" --licenses
       fi
 
+      # MOVE INTO YOUR REPOSITORY FOLDER FIRST
+      cd MoneytarckerLocal
+
+      # NOW RUN GRADLE
       chmod +x gradlew
-      #./gradlew assembleDebug
-      ./gradle assembleRelease
+      ./gradlew assembleRelease
     setup_commands: apt-get update && apt-get install -y unzip curl
     cached_dirs:
     - /root/.gradle
