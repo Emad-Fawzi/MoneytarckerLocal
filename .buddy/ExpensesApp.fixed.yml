@@ -33,7 +33,7 @@
 
       # NOW RUN GRADLE
       chmod +x gradle
-      ./settings.gradle.kts assembleRelease
+      ./build.gradle.kts assembleRelease
     setup_commands: apt-get update && apt-get install -y unzip curl
     cached_dirs:
     - /root/.gradle
