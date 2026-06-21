@@ -30,7 +30,7 @@
 
       chmod +x gradlew
       #./gradlew assembleDebug
-      ./gradlew assembleRelease
+      ./gradle assembleRelease
     setup_commands: apt-get update && apt-get install -y unzip curl
     cached_dirs:
     - /root/.gradle
