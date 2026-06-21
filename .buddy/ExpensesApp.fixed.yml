@@ -10,6 +10,7 @@
   actions:
   - action: ./gradlew assembleRelease
     type: BUILD
+    run_next: IN_SOFT_PARALLEL
     commands: |-
       export ANDROID_HOME="/opt/android/sdk"
       export PATH=$PATH:/opt/android/sdk/cmdline-tools/tools/bin
