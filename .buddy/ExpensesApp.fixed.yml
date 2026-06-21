@@ -29,7 +29,7 @@
       fi
 
       # MOVE INTO YOUR REPOSITORY FOLDER FIRST
-      cd./
+
 
       # NOW RUN GRADLE
       chmod +x gradlew
