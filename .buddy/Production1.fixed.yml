@@ -12,6 +12,7 @@
   actions:
   - action: ./gradlew assembleRelease 2
     type: BUILD
+    ignore_errors: true
     commands: |-
       #Install Android SDK
 
@@ -49,7 +50,6 @@
     cached_dirs:
     - /root/.gradle
     - /opt/android/sdk
-    shell: BASH
     docker_image_name: library/eclipse-temurin
     docker_image_tag: 17
   - action: ./gradlew assembleRelease
